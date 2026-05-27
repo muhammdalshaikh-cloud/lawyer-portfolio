@@ -143,7 +143,7 @@ ${formData.description}
       {/* Hero Section */}
       <section id="hero" className="hero">
         <div className="hero-content">
-          <h1 style={{color: 'white'}}>محمد آل الشيخ</h1>
+          <h1 style={{color: 'white'}}>المحامي/ محمد آل الشيخ</h1>
           <p style={{color: '#d4af37'}}>محامي عمالي</p>
         </div>
       </section>
