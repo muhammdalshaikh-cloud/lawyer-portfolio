@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './App.css'
 import LanguageSwitcher from './components/LanguageSwitcher'
 
@@ -9,7 +10,6 @@ if (typeof window !== 'undefined') {
 }
 
 function App() {
-  const { t, i18n } = useTranslation()
   const [showCaseForm, setShowCaseForm] = useState(false)
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false)
   const [showLicenseModal, setShowLicenseModal] = useState(false)
@@ -136,10 +136,10 @@ ${formData.description}
       <nav className={`navbar ${!isAtHero ? 'scrolled' : ''}`}>
         <div className="container">
           <div className="nav-content">
-            <a href="#hero" className="nav-link">{t('nav.home')}</a>
-            <a href="#about" className="nav-link">{t('nav.about')}</a>
-            <a href="#services" className="nav-link">{t('nav.services')}</a>
-            <a href="#contact" className="nav-link">{t('nav.contact')}</a>
+            <a href="#hero" className="nav-link">الرئيسية</a>
+            <a href="#about" className="nav-link">نبذة عنا</a>
+            <a href="#services" className="nav-link">خدماتنا</a>
+            <a href="#contact" className="nav-link">تواصل معنا</a>
           </div>
         </div>
       </nav>
@@ -147,24 +147,24 @@ ${formData.description}
       {/* Hero Section */}
       <section id="hero" className="hero">
         <div className="hero-content">
-          <h1 style={{color: 'white'}}>{t('hero.title')}</h1>
-          <p style={{color: '#d4af37'}}>{t('hero.subtitle')}</p>
+          <h1 style={{color: 'white'}}>المحامي/ محمد آل الشيخ</h1>
+          <p style={{color: '#d4af37'}}>محامي عمالي</p>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="about">
         <div className="container">
-          <h2>{t('about.title')}</h2>
+          <h2>نبذة عن المحامي / محمد آل الشيخ</h2>
           
           <div className="about-intro">
             <div className="intro-header">
-              <h3 className="intro-title">{t('about.intro_title')}</h3>
-              <p className="intro-subtitle">{t('about.intro_subtitle')}</p>
+              <h3 className="intro-title">محامي متخصص في القضايا العمالية</h3>
+              <p className="intro-subtitle">خبرة واسعة في تمثيل الموظفين والعمال في المملكة العربية السعودية</p>
             </div>
             
             <p className="intro-text">
-              {t('about.description')}
+              محامٍ سعودي مرخص من وزارة العدل، ومعتمد مهنيًا من الهيئة السعودية للمحامين، متخصص بشكل كامل في مجال القانون العمالي. تولى عدد كبير من القضايا العمالية المعقدة ضد كبريات الشركات والبنوك والمؤسسات في المملكة العربية السعودية. يقدم خدمات قانونية متكاملة للموظفين والعمال الذين يواجهون نزاعات عمالية، سواء كانت قضايا فصل تعسفي، عدم دفع الأجور، أو المطالبة بحقوقهم القانونية الكاملة.
             </p>
             
             <div className="stats">
@@ -207,7 +207,7 @@ ${formData.description}
       {/* Services Section */}
       <section id="services" className="services">
         <div className="container">
-          <h2>{t('nav.services')}</h2>
+          <h2>خدماتنا</h2>
           <div className="services-grid">
             <div className="service-card" onClick={() => setShowCaseForm(true)}>
               <h3>تولي قضيتي العمالية</h3>
@@ -258,7 +258,7 @@ ${formData.description}
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
-          <h2>{t('nav.contact')}</h2>
+          <h2>تواصل معنا</h2>
           <div className="contact-grid">
             <div className="contact-info">
               <h3>طرق التواصل</h3>
@@ -324,9 +324,6 @@ ${formData.description}
                 <label>رقم الهوية *</label>
                 <input type="text" name="identity" value={formData.identity} onChange={handleInputChange} required />
               </div>
-              
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>بيانات العمل</h3>
-              
               <div className="form-group">
                 <label>جهة العمل *</label>
                 <input type="text" name="workplace" value={formData.workplace} onChange={handleInputChange} required />
@@ -337,14 +334,14 @@ ${formData.description}
               </div>
               <div className="form-group">
                 <label>الراتب الشهري *</label>
-                <input type="text" name="salary" value={formData.salary} onChange={handleInputChange} required />
+                <input type="text" name="salary" value={formData.salary} onChange={handleInputChange} required placeholder="بيِّن الأجر الأساسي، والبدلات إن وجدت، وكذلك المميزات العينية إن وجدت" />
               </div>
               <div className="form-group">
                 <label>تاريخ بدء العمل *</label>
                 <input type="date" name="startDate" value={formData.startDate} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>تاريخ انتهاء العمل</label>
+                <label>تاريخ انتهاء العمل (إن وجد)</label>
                 <input type="date" name="endDate" value={formData.endDate} onChange={handleInputChange} />
               </div>
               <div className="form-group">
@@ -352,79 +349,74 @@ ${formData.description}
                 <input type="text" name="workCity" value={formData.workCity} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>سبب ترك العمل</label>
+                <label>سبب ترك العمل (إن وجد)</label>
                 <input type="text" name="reasonForLeaving" value={formData.reasonForLeaving} onChange={handleInputChange} />
               </div>
-              
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>معلومات العقد</h3>
-              
               <div className="form-group">
                 <label>هل يوجد عقد عمل مكتوب؟ *</label>
                 <select name="hasWrittenContract" value={formData.hasWrittenContract} onChange={handleInputChange} required>
                   <option value="">اختر...</option>
-                  <option value="نعم">نعم</option>
+                  <option value="نعم، وتوجد صورة من العقد عندي">نعم، وتوجد صورة من العقد عندي</option>
+                  <option value="نعم، ولا توجد صورة من العقد عندي">نعم، ولا توجد صورة من العقد عندي</option>
                   <option value="لا">لا</option>
                 </select>
               </div>
+              {formData.hasWrittenContract !== 'لا' && (
               <div className="form-group">
-                <label>هل العقد إلكتروني؟ *</label>
-                <select name="isContractOfficial" value={formData.isContractOfficial} onChange={handleInputChange} required>
+                <label>هل العقد إلكتروني؟ {formData.hasWrittenContract === 'لا' ? '' : '*'}</label>
+                <select name="isContractOfficial" value={formData.isContractOfficial} onChange={handleInputChange} required={formData.hasWrittenContract !== 'لا'}>
                   <option value="">اختر...</option>
                   <option value="نعم">نعم</option>
                   <option value="لا">لا</option>
                 </select>
               </div>
-              
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>الأجور والإجازات</h3>
-              
-              <div className="form-group">
-                <label>الأجور المتأخرة *</label>
-                <select name="delayedSalary" value={formData.delayedSalary} onChange={handleInputChange} required>
-                  <option value="">اختر...</option>
-                  <option value="نعم">نعم</option>
-                  <option value="لا">لا</option>
-                </select>
-              </div>
-              {formData.delayedSalary === 'نعم' && (
-                <div className="form-group">
-                  <label>تفاصيل الأجور المتأخرة</label>
-                  <input type="text" name="delayedSalaryDetails" value={formData.delayedSalaryDetails} onChange={handleInputChange} placeholder="مثال: 3 أشهر" />
-                </div>
               )}
-              
+              <div className="form-group">
+                <label>الأجور المتأخرة</label>
+                <select name="delayedSalary" value={formData.delayedSalary} onChange={handleInputChange}>
+                  <option value="">اختر...</option>
+                  <option value="نعم">يوجد أجور متأخرة</option>
+                  <option value="لا">لا يوجد أجور متأخرة</option>
+                </select>
+                {formData.delayedSalary === 'نعم' && (
+                  <div className="form-group" style={{marginTop: '10px'}}>
+                    <label>تفاصيل الأجور المتأخرة</label>
+                    <input type="text" name="delayedSalaryDetails" value={formData.delayedSalaryDetails} onChange={handleInputChange} placeholder="مثال: شهر يناير 2024 و 15 يوم من فبراير 2024" />
+                  </div>
+                )}
+              </div>
               <div className="form-group">
                 <label>رصيد الإجازات السنوية *</label>
                 <select name="vacationBalance" value={formData.vacationBalance} onChange={handleInputChange} required>
                   <option value="">اختر...</option>
-                  <option value="نعم">نعم</option>
-                  <option value="لا">لا</option>
+                  <option value="yes-known">يوجد، وأعرف عدد الأيام المستحقة لي</option>
+                  <option value="yes-unknown">يوجد، ولكن لا أعرف عدد الأيام المستحقة لي</option>
+                  <option value="no">لا يوجد</option>
                 </select>
-              </div>
-              {formData.vacationBalance === 'نعم' && (
-                <>
-                  <div className="form-group">
-                    <label>عدد أيام الإجازة المستحقة</label>
-                    <input type="number" name="vacationDays" value={formData.vacationDays} onChange={handleInputChange} />
+                {formData.vacationBalance === 'yes-known' && (
+                  <div className="form-group" style={{marginTop: '10px'}}>
+                    <label>عدد أيام الإجازة المستحقة لي</label>
+                    <input type="text" name="vacationDays" value={formData.vacationDays} onChange={handleInputChange} placeholder="مثال: 15 يوم لسنة 2024" />
                   </div>
-                  <div className="form-group">
+                )}
+                {formData.vacationBalance === 'yes-unknown' && (
+                  <div className="form-group" style={{marginTop: '10px'}}>
                     <label>عدد أيام الإجازة التي خرجتها</label>
-                    <input type="number" name="vacationDaysUsed" value={formData.vacationDaysUsed} onChange={handleInputChange} />
+                    <input type="text" name="vacationDaysUsed" value={formData.vacationDaysUsed} onChange={handleInputChange} placeholder="مثال: 5 أيام في 2024" />
                   </div>
-                </>
-              )}
-              
-              <div className="form-group">
-                <label>وصف القضية *</label>
-                <textarea name="description" value={formData.description} onChange={handleInputChange} required rows="5"></textarea>
+                )}
               </div>
-              
+              <div className="form-group">
+                <label>وصف القضية / المشكلة *</label>
+                <textarea name="description" value={formData.description} onChange={handleInputChange} required rows="5" placeholder="اشرح وقائع قضيتك، وبيِن مطالبك، وأي شيء ترغب من المحامي دراسته"></textarea>
+              </div>
               <button type="submit" className="submit-btn">إرسال الطلب عبر الواتس آب</button>
             </form>
           </div>
         </div>
       )}
 
-      {/* License Modal */}
+      {/* License Image Modal */}
       {showLicenseModal && (
         <div className="license-modal" onClick={() => setShowLicenseModal(false)}>
           <div className="license-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -433,6 +425,73 @@ ${formData.description}
           </div>
         </div>
       )}
+
+      {/* Privacy Policy Modal */}
+      {showPrivacyPolicy && (
+        <div className="privacy-modal" onClick={() => setShowPrivacyPolicy(false)}>
+          <div className="privacy-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setShowPrivacyPolicy(false)}>✕</button>
+            <h2>سياسة الخصوصية</h2>
+            <div className="privacy-text">
+              <h3>1- ما المقصود بالبيانات الشخصية؟</h3>
+              <p>يقصد بالبيانات الشخصية كل بيان -مهما كان مصدره أو شكله- من شأنه أن يؤدي إلى معرفة الفرد على وجه التحديد، أو يجعل التعرف عليه ممكنًا بصفة مباشرة أو غير مباشرة.</p>
+              
+              <h3>2- ما هي البيانات الشخصية التي نقوم بجمعها ومعالجتها؟</h3>
+              <p>نقوم بجمع ومعالجة البيانات الشخصية الإلزامية الآتية:</p>
+              <p>الاسم، والهوية، ورقم الجوال، والبريد الإلكتروني، وعقد العمل، والعنوان الوطني، والبيانات اللازمة للسير في القضية.</p>
+              
+              <h3>3- كيف يتم جمع بياناتك الشخصية؟</h3>
+              <p>جميع البيانات الشخصية التي نقوم بمعالجتها يتم الحصول عليها عن طريقك مباشرة.</p>
+              
+              <h3>4- كيف نستخدم بياناتك الشخصية وما الغرض من جمعها؟</h3>
+              <p>نستخدم البيانات الشخصية التي تم جمعها للتواصل معك، وللقيام بالخدمات المطلوبة من قبلك. ونحيطكم بأن بياناتكم لن تعالج بصورة تتنافى مع الغرض من جمعها.</p>
+              
+              <h3>5- كيف نفصح عن بياناتك الشخصية وكيف نعالجها؟</h3>
+              <p>لن نفصح عن بياناتك الشخصية لأي طرف آخر لأغراض التسويق المباشر.</p>
+              <p>وقد نفصح عن بياناتك الشخصية مع الجهات الآتية:</p>
+              <p><strong>أ-</strong> إذا كانت الجهة التي تطلب الإفصاح جهة عامة، وكان ذلك لأغراض المصلحة العامة أو لأغراض أمنية أو لتنفيذ أحكام الأنظمة أو لاستيفاء متطلبات قضائية.</p>
+              <p><strong>ب-</strong> إذا كان الإفصاح سيقتصر على معالجتها لاحقاً بطريقة لا تؤدي إلى معرفة هويتك أو أي فرد آخر على وجه التحديد.</p>
+              <p><strong>ج-</strong> إذا كان الإفصاح ضروريًا لتحقيق مصالح مشروعة لنا، ما لم يخل ذلك بحقوقك أو يتعارض مع مصالحك ولم تكن تلك البيانات بيانات حساسة.</p>
+              <p><strong>د-</strong> جهات تقديم خدمات معالجة المدفوعات، والمؤسسات الأخرى التي نستخدمها لمعالجة مدفوعاتك.</p>
+              <p><strong>هـ-</strong> مقدّمو الخدمات الخارجيون المستقلّون (بمن فيهم المتعاقدون من الباطن)؛ مثل وكلاء التحصيل.</p>
+              
+              <h3>6- المسوغات النظامية لجمع ومعالجة بياناتك الشخصية:</h3>
+              <p>وفقاً لنظام حماية البيانات الشخصية، فإن المسوغ النظامي الذي نعتمد عليه لمعالجة بياناتك:</p>
+              <p><strong>أ-</strong> موافقتك الصريحة، ويعد تقديمك للبيان موافقة صريحة منك، ويمكنك التواصل معنا عبر بيانات التواصل المدونة أدناه للعدول عن الموافقة في أي وقت على ألا يؤثر على عمليات المعالجة التي تتم بناءً على مسوغات نظامية أخرى.</p>
+              <p><strong>ب-</strong> تنفيذًا لالتزام تعاقدي حسب العقد المبرم معكم.</p>
+              
+              <h3>7- كيف نقوم بتخزين وحفظ وإتلاف بياناتك الشخصية؟</h3>
+              <p><strong>أ-</strong> يتم تخزين بياناتك الشخصية بشكل آمن وذلك لدى مقدم خدمات الحوسبة السحابية.</p>
+              <p><strong>ب-</strong> نحتفظ ببياناتك الشخصية طوال علاقتك معنا، وطالما كان ذلك ضروريًا لتحقيق الغرض الذي تم جمعها لتحقيقه، ويعني هذا أنّه سيتم إتلاف البيانات ومحوها من أنظمتنا عندما لا تصبح مطلوبة، كما نحتفظ ببياناتك الشخصية طبقًا لنظام الدفاتر التجارية لمدة عشر سنوات من انتهاء العلاقة معك، وسنقوم بعد ذلك بالتخلص من هذه البيانات بطريقة آمنة لا يمكن من خلالها الاطلاع عليها أو استعادتها مرة أخرى، وذلك بشكل إلكتروني.</p>
+              
+              <h3>8- حقوقك فيما يتعلق بمعالجة بياناتك الشخصية:</h3>
+              <p>بموجب نظام حماية البيانات الشخصية، فإن لديك الحقوق الآتية:</p>
+              <p><strong>أ- الحق في العلم:</strong> يحق لك معرفة طرق جمعنا لبياناتك الشخصية والمسوغ النظامي لجمعها ومعالجتها، وكيفية معالجتها وحفظها وإتلافها ولمن سيتم الإفصاح عنها، ويمكنك الاطلاع على كافة التفاصيل من خلال سياسة الخصوصية أو يمكنك التواصل معنا عبر بيانات التواصل المدونة أدناه.</p>
+              <p><strong>ب- الحق في الوصول إلى بياناتك الشخصية:</strong> يحق لك أن تطلب منا الاطلاع على بياناتك الشخصية، وذلك عن طريق التواصل معنا عبر بيانات التواصل المدونة أدناه.</p>
+              <p><strong>ج- الحق في طلب الحصول على بياناتك الشخصية:</strong> يحق لك طلب الحصول على بياناتك الشخصية المتوفرة لدينا بصيغة مقروءة وواضحة متى ما كان ذلك ممكنًا.</p>
+              <p><strong>د- الحق في تصحيح بياناتك الشخصية:</strong> يحق لك أن تطلب منا تصحيح بياناتك الشخصية التي ترى أنها غير دقيقة أو غير صحيحة أو غير مكتملة.</p>
+              <p><strong>هـ- الحق في إتلاف بياناتك الشخصية:</strong> يحق لك أن تطلب منا إتلاف بياناتك الشخصية بما لا يتعارض مع المسوغات النظامية التي توجب حفظها، والقيود الواردة على الحق في الإتلاف حسب المادة الثامنة عشرة من نظام حماية البيانات الشخصية.</p>
+              <p><strong>و- الحق في الرجوع عن موافقتك على معالجة بياناتك الشخصية:</strong> يحق لك الرجوع عن موافقتك على معالجة بياناتك الشخصية -في أي وقت- ما لم تكن هناك مسوغات نظامية تتطلب عكس ذلك، وبما لا يؤثر على تقديم الخدمات حسب العقد المبرم معكم.</p>
+              <p>ما عدا ما هو منصوص عليه نظاماً، لن تكون مطالباً بدفع أي رسوم مقابل ممارسة هذه الحقوق، ويمكنك طلب ممارسة أي من هذه الحقوق عن طريق التواصل معنا عبر بيانات التواصل المدونة أدناه، وفي حال تم تقديم طلب لممارسة أي من هذه الحقوق، سيتم الرد عليك خلال مدة لا تتجاوز (ثلاثين) يومًا من تاريخ استلام الطلب كاملًا، علمًا أنه قد يتم تمديد المدة في حال تطلب التنفيذ جهدًا إضافيًا غير متوقع أو غير معتاد أو في حال تلقينا طلبات متعددة منك، وذلك بما لا يزيد على (ثلاثين) يومًا إضافية، وسيتم إشعارك مسبقًا بالتمديد ومبرراته.</p>
+              <p>علمًا أنه يحق لنا في حال كان الطلب متكررًا بشكل غير مبرر أو يتطلب تنفيذه جهدًا غير عادي؛ عدم معالجة الطلب، على أن يكون ذلك مسببًا مع إشعارك بذلك.</p>
+              
+              <h3>9- كيف تتواصل معنا؟</h3>
+              <p>يمكنك التواصل معنا عن طريق بيانات التواصل الموضحة في الموقع الإلكتروني.</p>
+              
+              <p style={{marginTop: '20px', fontSize: '14px', color: '#666'}}>تم إجراء آخر تحديث على سياسة الخصوصية بتاريخ 23-05-2026م، ويمكنك الاطلاع على سجل التحديثات أدناه:</p>
+              <p style={{fontSize: '14px', color: '#666'}}>لا يوجد سجل تحديثات سابق.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <p>&copy; 2025 المحامي محمد آل الشيخ. جميع الحقوق محفوظة.</p>
+          <a className="privacy-link" onClick={() => setShowPrivacyPolicy(true)} style={{color: '#ffffff', cursor: 'pointer', textDecoration: 'underline'}}>سياسة الخصوصية</a>
+        </div>
+      </footer>
     </div>
   )
 }
