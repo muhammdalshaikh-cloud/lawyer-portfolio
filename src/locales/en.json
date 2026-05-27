@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Lawyer / Mohammed Al-Shaikh",
+    "subtitle": "Labor Law Specialist"
+  },
+  "about": {
+    "title": "About Lawyer / Mohammed Al-Shaikh",
+    "intro_title": "Specialist in Labor Cases",
+    "intro_subtitle": "Extensive experience in representing employees and workers in the Kingdom of Saudi Arabia",
+    "description": "A licensed Saudi lawyer from the Ministry of Justice, professionally accredited by the Saudi Bar Association, fully specialized in labor law. Has handled numerous complex labor cases against major companies, banks, and institutions in the Kingdom of Saudi Arabia. Provides comprehensive legal services to employees and workers facing labor disputes, whether wrongful termination, wage non-payment, or claiming their full legal rights."
+  },
+  "services": {
+    "title": "Legal Services",
+    "service1": "Labor Law Consultations",
+    "service2": "Legal Representation in Labor Cases",
+    "service3": "Labor Dispute Resolution",
+    "service4": "Compensation and Benefits Consultations"
+  },
+  "experience": {
+    "title": "Experience & Qualifications",
+    "years": "Years of Experience",
+    "cases": "Successful Labor Cases",
+    "clients": "Satisfied Clients"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "address": "Address"
+  },
+  "footer": {
+    "rights": "All Rights Reserved"
+  }
+}

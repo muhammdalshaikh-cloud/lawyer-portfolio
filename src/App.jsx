@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './App.css'
+import LanguageSwitcher from './components/LanguageSwitcher'
 
 // Smooth scroll behavior
 if (typeof window !== 'undefined') {
@@ -128,6 +131,7 @@ ${formData.description}
 
   return (
     <div className="app">
+      <LanguageSwitcher />
       {/* Navigation */}
       <nav className={`navbar ${!isAtHero ? 'scrolled' : ''}`}>
         <div className="container">
