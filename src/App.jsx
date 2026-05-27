@@ -143,8 +143,8 @@ ${formData.description}
       {/* Hero Section */}
       <section id="hero" className="hero">
         <div className="hero-content">
-          <h1 style={{color: 'white'}}>المحامي/ محمد آل الشيخ</h1>
-          <p style={{color: '#d4af37'}}>محامٍ متخصص في القضايا العمالية</p>
+          <h1 style={{color: 'white'}}>محمد آل الشيخ</h1>
+          <p style={{color: '#d4af37'}}>محامي عمالي</p>
         </div>
       </section>
 
@@ -155,8 +155,8 @@ ${formData.description}
           
           <div className="about-intro">
             <div className="intro-header">
-              <h3 className="intro-title">محامٍ سعودي متخصص في القضايا العمالية</h3>
-              <p className="intro-subtitle">خبرة واسعة في تمثيل الموظفين والعمال في القضايا العمالية المعقدة</p>
+              <h3 className="intro-title">محامي متخصص في القضايا العمالية</h3>
+              <p className="intro-subtitle">خبرة واسعة في تمثيل الموظفين والعمال في المملكة العربية السعودية</p>
             </div>
             
             <p className="intro-text">
