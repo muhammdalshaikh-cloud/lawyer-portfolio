@@ -1898,56 +1898,14 @@ body {
   color: var(--bg-white);
 }
 
-/* Enhanced LTR Support for English */
-[lang="en"] {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] body,
-[lang="en"] .container,
-[lang="en"] section {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] h1,
-[lang="en"] h2,
-[lang="en"] h3,
-[lang="en"] h4,
-[lang="en"] h5,
-[lang="en"] h6,
-[lang="en"] p,
-[lang="en"] li,
-[lang="en"] span {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] .about-intro .intro-text {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] .privacy-modal-content {
-  direction: ltr;
-  text-align: left;
-}
-
+/* LTR Support for English - Body Text Only */
+[lang="en"] .intro-text,
+[lang="en"] .about-intro .intro-text,
+[lang="en"] .service-card p,
+[lang="en"] .contact-info p,
+[lang="en"] .faq-answer,
 [lang="en"] .privacy-modal-content p,
-[lang="en"] .privacy-modal-content li,
-[lang="en"] .privacy-modal-content ul {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] .contact-info,
-[lang="en"] .contact-method {
-  direction: ltr;
-  text-align: left;
-}
-
-[lang="en"] .faq-item {
+[lang="en"] .privacy-modal-content li {
   direction: ltr;
   text-align: left;
 }
