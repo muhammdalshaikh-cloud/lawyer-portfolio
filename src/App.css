@@ -1858,3 +1858,108 @@ body {
   direction: ltr;
   text-align: left;
 }
+
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--bg-white);
+  padding: 30px 0;
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.privacy-link {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  font-family: inherit;
+}
+
+.privacy-link:hover {
+  color: var(--bg-white);
+}
+
+/* Enhanced LTR Support for English */
+[lang="en"] {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] body,
+[lang="en"] .container,
+[lang="en"] section {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] h1,
+[lang="en"] h2,
+[lang="en"] h3,
+[lang="en"] h4,
+[lang="en"] h5,
+[lang="en"] h6,
+[lang="en"] p,
+[lang="en"] li,
+[lang="en"] span {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] .about-intro .intro-text {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] .privacy-modal-content {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] .privacy-modal-content p,
+[lang="en"] .privacy-modal-content li,
+[lang="en"] .privacy-modal-content ul {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] .contact-info,
+[lang="en"] .contact-method {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="en"] .faq-item {
+  direction: ltr;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer p,
+  .privacy-link {
+    font-size: 12px;
+  }
+}

@@ -130,7 +130,7 @@ ${formData.description}
   }
 
   return (
-    <div className="app">
+    <div className="app" lang={i18n.language} dir={i18n.language === 'en' ? 'ltr' : 'rtl'}>
       <LanguageSwitcher />
       {/* Navigation */}
       <nav className={`navbar ${!isAtHero ? 'scrolled' : ''}`}>
@@ -497,6 +497,19 @@ ${formData.description}
           </div>
         </div>
       )}
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <p>{t('footer.rights')}</p>
+          <button 
+            onClick={() => setShowPrivacyPolicy(true)}
+            className="privacy-link"
+          >
+            {t('privacy.title')}
+          </button>
+        </div>
+      </footer>
     </div>
   )
 }
