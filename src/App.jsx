@@ -210,12 +210,12 @@ ${formData.description}
           <h2>{t('nav.services')}</h2>
           <div className="services-grid">
             <div className="service-card" onClick={() => setShowCaseForm(true)}>
-              <h3>تولي قضيتي العمالية</h3>
-              <p>نتولى قضيتك العمالية بكاملها من البداية إلى النهاية. قدم طلبك الآن وسنتواصل معك لحصر المطالبة والاتفاق على الأتعاب.</p>
+              <h3>{t('services.service1_title')}</h3>
+              <p>{t('services.service1_desc')}</p>
             </div>
             <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص خدمة قانونية أخرى" target="_blank" rel="noopener noreferrer" className="service-card service-card-link">
-              <h3>خدمات قانونية أخرى</h3>
-              <p>لطلب الخدمات القانونية الأخرى، تواصل عن طريق الـ WhatsApp</p>
+              <h3>{t('services.service2_title')}</h3>
+              <p>{t('services.service2_desc')}</p>
             </a>
           </div>
         </div>
@@ -224,24 +224,24 @@ ${formData.description}
       {/* FAQ Section */}
       <section className="faq">
         <div className="container">
-          <h2>الأسئلة الشائعة</h2>
+          <h2>{t('faq.title')}</h2>
           <div className="faq-list">
             {[
               {
-                question: 'هل إرسال (طلب تولي قضيتي العمالية) ينشئ أي التزام عليَّ؟',
-                answer: 'مجرد إرسال الطلب لا ينشئ أي التزام، ولا ينشئ علاقة تعاقدية، وإنما هو بداية لعملية التفاوض ودراسة القضية، وسيتواصل معك المحامي لحصر المطالبة، والاتفاق على نطاق العمل والأتعاب، وعند الاتفاق يتم توقيع عقد محاماة تحدد فيه حقوق والتزامات كل طرف.'
+                question: t('faq.q1'),
+                answer: t('faq.a1')
               },
               {
-                question: 'هل يلزم حضوري للمكتب لتوقيع العقد أو خلال مراحل سير القضية؟',
-                answer: 'لا يلزم.'
+                question: t('faq.q2'),
+                answer: t('faq.a2')
               },
               {
-                question: 'ما الذي تشمله خدمة (تولي قضيتي العمالية)؟',
-                answer: 'تشمل الخدمة دراسة القضية، وحصر المطالبة، وتقديم طلب التسوية الودية لمكتب العمل المختص، وحضور الجلسات أمام مكتب العمل، وصياغة صحيفة الدعوى، ورفعها للمحكمة العمالية المختصة، ومتابعة قيدها، وحضور الجلسات القضائية، وتقديم المذكرات الجوابية، والاعتراض على حكم محكمة الدرجة الأولى بطريق الاستئناف حال وجدت حاجة ووجاهة لذلك، وتقديم الحكم النهائي أو محضر التسوية الودية لمحكمة التنفيذ المختصة، ومتابعة طلب التنفيذ حتى انتهائه.'
+                question: t('faq.q3'),
+                answer: t('faq.a3')
               },
               {
-                question: 'كيف يتم تحديد الأتعاب؟',
-                answer: 'نظرًا لطبيعة القضايا العمالية تحدد الأتعاب بدفعتين: الدفعة الأولى: مقدم رمزي قدره 500 - 1000 ⃁؛ بغرض التحقق من جدية القضية. الدفعة الثانية: مؤخر قدره 25% مما يستلمه الموكل للقضية التي يقل مبلغ المطالبة فيها عن 50,000 ⃁، و20% مما يستلمه الموكل للقضية التي يزيد مبلغ المطالبة فيها عن 50,000 ⃁.'
+                question: t('faq.q4'),
+                answer: t('faq.a4')
               }
             ].map((item, index) => (
               <div key={index} className="faq-item">
@@ -283,9 +283,9 @@ ${formData.description}
             </div>
             <div className="contact-location">
               <br />
-              <h3>موقعنا</h3>
-              <p>المملكة العربية السعودية، المنطقة الشرقية، سيهات</p>
-              <div className="map-container">
+              <h3>{t('contact.location')}</h3>
+              <p>{t('contact.address')}</p>
+              <div style={{ marginTop: '30px' }} className="map-container">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.8897457891487!2d50.0495014!3d26.4882261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49ffb2923304e7:0x7a7abb7c8026a8a4!2z-YXZiNmE2Yog2YXZhNmK2LnZiNin!5e0!3m2!1sar!2ssa!4v1716437400000"
                   width="100%"
@@ -430,6 +430,70 @@ ${formData.description}
           <div className="license-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setShowLicenseModal(false)}>✕</button>
             <img src="/lawyer_license.png" alt="رخصة المحاماة" />
+          </div>
+        </div>
+      )}
+
+      {/* Privacy Policy Modal */}
+      {showPrivacyPolicy && (
+        <div className="privacy-modal" onClick={() => setShowPrivacyPolicy(false)}>
+          <div className="privacy-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setShowPrivacyPolicy(false)}>✕</button>
+            <h2>{t('privacy.title')}</h2>
+            <div className="privacy-content">
+              <h3>{t('privacy.section1_title')}</h3>
+              <p>{t('privacy.section1_text')}</p>
+              
+              <h3>{t('privacy.section2_title')}</h3>
+              <p>{t('privacy.section2_text')}</p>
+              
+              <h3>{t('privacy.section3_title')}</h3>
+              <p>{t('privacy.section3_text')}</p>
+              
+              <h3>{t('privacy.section4_title')}</h3>
+              <p>{t('privacy.section4_text')}</p>
+              
+              <h3>{t('privacy.section5_title')}</h3>
+              <p>{t('privacy.section5_intro')}</p>
+              <ul>
+                <li>{t('privacy.section5_a')}</li>
+                <li>{t('privacy.section5_b')}</li>
+                <li>{t('privacy.section5_c')}</li>
+                <li>{t('privacy.section5_d')}</li>
+                <li>{t('privacy.section5_e')}</li>
+              </ul>
+              
+              <h3>{t('privacy.section6_title')}</h3>
+              <p>{t('privacy.section6_intro')}</p>
+              <ul>
+                <li>{t('privacy.section6_a')}</li>
+                <li>{t('privacy.section6_b')}</li>
+              </ul>
+              
+              <h3>{t('privacy.section7_title')}</h3>
+              <ul>
+                <li>{t('privacy.section7_a')}</li>
+                <li>{t('privacy.section7_b')}</li>
+              </ul>
+              
+              <h3>{t('privacy.section8_title')}</h3>
+              <p>{t('privacy.section8_intro')}</p>
+              <ul>
+                <li><strong>{t('privacy.section8_a_title')}</strong> {t('privacy.section8_a_text')}</li>
+                <li><strong>{t('privacy.section8_b_title')}</strong> {t('privacy.section8_b_text')}</li>
+                <li><strong>{t('privacy.section8_c_title')}</strong> {t('privacy.section8_c_text')}</li>
+                <li><strong>{t('privacy.section8_d_title')}</strong> {t('privacy.section8_d_text')}</li>
+                <li><strong>{t('privacy.section8_e_title')}</strong> {t('privacy.section8_e_text')}</li>
+                <li><strong>{t('privacy.section8_f_title')}</strong> {t('privacy.section8_f_text')}</li>
+              </ul>
+              <p>{t('privacy.section8_footer')}</p>
+              
+              <h3>{t('privacy.section9_title')}</h3>
+              <p>{t('privacy.section9_text')}</p>
+              
+              <p><small>{t('privacy.lastUpdate')}</small></p>
+              <p><small>{t('privacy.noUpdates')}</small></p>
+            </div>
           </div>
         </div>
       )}

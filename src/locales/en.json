@@ -1,41 +1,101 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "services": "Services",
     "experience": "Experience",
-    "contact": "Contact"
+    "contact": "Contact Us"
   },
   "hero": {
-    "title": "Lawyer / Mohammed Al-Shaikh",
-    "subtitle": "Labor Law Specialist"
+    "title": "Lawyer Mohammed Al Alshaikh",
+    "subtitle": "Labor Lawyer"
   },
   "about": {
-    "title": "About Lawyer / Mohammed Al-Shaikh",
+    "title": "About Lawyer Mohammed Al Alshaikh",
     "intro_title": "Specialist in Labor Cases",
     "intro_subtitle": "Extensive experience in representing employees and workers in the Kingdom of Saudi Arabia",
     "description": "A licensed Saudi lawyer from the Ministry of Justice, professionally accredited by the Saudi Bar Association, fully specialized in labor law. Has handled numerous complex labor cases against major companies, banks, and institutions in the Kingdom of Saudi Arabia. Provides comprehensive legal services to employees and workers facing labor disputes, whether wrongful termination, wage non-payment, or claiming their full legal rights."
   },
+  "stats": {
+    "cases": "Complex Labor Cases",
+    "consultations": "Labor Law Consultations",
+    "commitment": "Commitment to Employee and Worker Rights",
+    "verification": "Verify Our Credibility:",
+    "verificationLink": "Verify Our Profile with the Saudi Bar Association"
+  },
   "services": {
     "title": "Legal Services",
-    "service1": "Labor Law Consultations",
-    "service2": "Legal Representation in Labor Cases",
-    "service3": "Labor Dispute Resolution",
-    "service4": "Compensation and Benefits Consultations"
+    "service1_title": "Handle My Labor Case",
+    "service1_desc": "We handle your labor case completely from start to finish. Submit your request now and we will contact you to determine the claim and agree on fees.",
+    "service2_title": "Other Legal Services",
+    "service2_desc": "To request other legal services, contact us via WhatsApp"
   },
-  "experience": {
-    "title": "Experience & Qualifications",
-    "years": "Years of Experience",
-    "cases": "Successful Labor Cases",
-    "clients": "Satisfied Clients"
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Does submitting a request to handle my labor case create any obligation on me?",
+    "a1": "Merely submitting the request does not create any obligation, nor does it create a contractual relationship. Rather, it is the beginning of a negotiation and case study process. The lawyer will contact you to determine the claim and agree on the scope of work and fees. Upon agreement, a legal representation agreement will be signed that defines the rights and obligations of each party.",
+    "q2": "Do I need to visit the office to sign the contract or during the case proceedings?",
+    "a2": "No, it is not required.",
+    "q3": "What does the service of handling my labor case include?",
+    "a3": "The service includes case study, claim determination, submission of a settlement request to the competent labor office, attendance at sessions before the labor office, drafting the lawsuit, filing it with the competent labor court, following up on its registration, attending court sessions, submitting response memoranda, objecting to the first-instance court judgment through appeal if there is a need and justification for it, submitting the final judgment or settlement record to the competent execution court, and following up on the execution request until completion.",
+    "q4": "How are fees determined?",
+    "a4": "Due to the nature of labor cases, fees are determined in two installments: First installment: a symbolic advance of 500 - 1000 SAR; for the purpose of verifying the seriousness of the case. Second installment: a deferred payment of 25% of what the client receives for cases where the claim amount is less than 50,000 SAR, and 20% of what the client receives for cases where the claim amount exceeds 50,000 SAR."
   },
   "contact": {
-    "title": "Contact Me",
-    "phone": "Phone Number",
+    "title": "Contact Us",
+    "methods": "Contact Methods",
+    "location": "Our Location",
+    "address": "Kingdom of Saudi Arabia, Eastern Region, Saihat",
     "email": "Email Address",
-    "address": "Address"
+    "phone": "Mobile",
+    "whatsapp": "WhatsApp",
+    "x": "X (formerly Twitter)"
   },
   "footer": {
     "rights": "All Rights Reserved"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "section1_title": "What is meant by personal data?",
+    "section1_text": "Personal data means any statement - regardless of its source or form - that could lead to identifying an individual specifically, or make identifying them possible directly or indirectly.",
+    "section2_title": "What personal data do we collect and process?",
+    "section2_text": "We collect and process the following mandatory personal data: name, identity number, mobile number, email address, employment contract, national address, and data necessary for case proceedings.",
+    "section3_title": "How is your personal data collected?",
+    "section3_text": "All personal data we process is obtained directly from you.",
+    "section4_title": "How do we use your personal data and what is the purpose of collecting it?",
+    "section4_text": "We use the collected personal data to contact you and to provide the services requested by you. We assure you that your data will not be processed in a manner that contradicts the purpose for which it was collected.",
+    "section5_title": "How do we disclose your personal data and how do we process it?",
+    "section5_intro": "We will not disclose your personal data to any other party for direct marketing purposes. However, we may disclose your personal data to the following entities:",
+    "section5_a": "If the entity requesting disclosure is a public entity, and that is for purposes of public interest or security purposes or to enforce regulations or to meet judicial requirements.",
+    "section5_b": "If the disclosure will be limited to processing it later in a manner that does not lead to identifying you or any other individual specifically.",
+    "section5_c": "If disclosure is necessary to achieve legitimate interests for us, provided that it does not prejudice your rights or conflict with your interests and that data is not sensitive data.",
+    "section5_d": "Entities providing payment processing services and other institutions we use to process your payments.",
+    "section5_e": "Independent external service providers (including subcontractors); such as collection agents.",
+    "section6_title": "The regulatory justifications for collecting and processing your personal data:",
+    "section6_intro": "In accordance with the Personal Data Protection System, the regulatory justification we rely on for processing your data is:",
+    "section6_a": "Your explicit consent, and your submission of the statement constitutes explicit consent from you. You can contact us via the contact information provided below to withdraw your consent at any time, provided that this does not affect processing operations that are carried out based on other regulatory justifications.",
+    "section6_b": "Implementation of a contractual obligation under the contract concluded with you.",
+    "section7_title": "How do we store, retain, and delete your personal data?",
+    "section7_a": "Your personal data is stored securely with a cloud computing service provider.",
+    "section7_b": "We retain your personal data throughout your relationship with us, and as long as it is necessary to achieve the purpose for which it was collected. This means that data will be deleted and removed from our systems when it is no longer needed. We also retain your personal data in accordance with the Commercial Records System for a period of ten years from the end of your relationship with us. After that, we will dispose of this data in a secure manner that prevents it from being accessed or recovered again, electronically.",
+    "section8_title": "Your rights regarding the processing of your personal data:",
+    "section8_intro": "Under the Personal Data Protection System, you have the following rights:",
+    "section8_a_title": "Right to be informed:",
+    "section8_a_text": "You have the right to know how we collect your personal data, the regulatory justification for collecting and processing it, how it is processed, retained, and deleted, and to whom it will be disclosed. You can view all details through this privacy policy or you can contact us via the contact information provided below.",
+    "section8_b_title": "Right to access your personal data:",
+    "section8_b_text": "You have the right to request that we provide you with access to your personal data by contacting us via the contact information provided below.",
+    "section8_c_title": "Right to obtain your personal data:",
+    "section8_c_text": "You have the right to request to obtain your personal data available to us in a readable and clear format whenever possible.",
+    "section8_d_title": "Right to correct your personal data:",
+    "section8_d_text": "You have the right to request that we correct your personal data that you believe is inaccurate, incorrect, or incomplete.",
+    "section8_e_title": "Right to delete your personal data:",
+    "section8_e_text": "You have the right to request that we delete your personal data in a manner that does not conflict with the regulatory justifications that require its retention, and the restrictions on the right to deletion as per Article 18 of the Personal Data Protection System.",
+    "section8_f_title": "Right to withdraw your consent for the processing of your personal data:",
+    "section8_f_text": "You have the right to withdraw your consent for the processing of your personal data at any time, unless there are regulatory justifications that require otherwise, and provided that this does not affect the provision of services under the contract concluded with you.",
+    "section8_footer": "Except as provided by law, you will not be required to pay any fees for exercising these rights. You can request to exercise any of these rights by contacting us via the contact information provided below. If a request is submitted to exercise any of these rights, you will be responded to within a period not exceeding thirty (30) days from the date of receipt of the complete request. Please note that the period may be extended if implementation requires unexpected or unusual effort or if we receive multiple requests from you, provided that this does not exceed an additional thirty (30) days. You will be notified in advance of the extension and its reasons. We also have the right, if the request is repetitive without justification or requires effort that is not ordinary, to not process the request, provided that this is reasoned and you are notified of it.",
+    "section9_title": "How do you contact us?",
+    "section9_text": "You can contact us via the contact information provided on the website.",
+    "lastUpdate": "The last update to this privacy policy was made on 23-05-2026",
+    "noUpdates": "There is no previous update history."
   }
 }
