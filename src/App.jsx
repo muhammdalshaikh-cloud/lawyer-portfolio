@@ -170,22 +170,22 @@ ${formData.description}
             <div className="stats">
               <div className="stat">
                 <h4>100+</h4>
-                <p>قضية عمالية معقدة</p>
+                <p>{t('stats.cases')}</p>
               </div>
               <div className="stat">
                 <h4>100+</h4>
-                <p>استشارة قانونية عمالية</p>
+                <p>{t('stats.consultations')}</p>
               </div>
               <div className="stat">
                 <h4>100%</h4>
-                <p>التزام بحقوق الموظف والعامل</p>
+                <p>{t('stats.commitment')}</p>
               </div>
             </div>
 
             <div className="verification-link">
-              <p>🔐 <strong>تحقق من موثوقيتنا:</strong></p>
+              <p>🔐 <strong>{t('stats.verification')}</strong></p>
               <a href="https://eservice.sba.gov.sa/lawyers?search=%D9%85%D8%AD%D9%85%D8%AF+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%88%D8%A7%D8%AD%D8%AF+%D8%A8%D9%86+%D8%A7%D8%AD%D9%85%D8%AF+%D8%A2%D9%84+%D8%A7%D9%84%D8%B4%D9%8A%D8%AE" target="_blank" rel="noopener noreferrer" className="sba-verification-btn">
-                التحقق من ملفنا في الهيئة السعودية للمحامين
+                {t('stats.verificationLink')}
               </a>
             </div>
 
