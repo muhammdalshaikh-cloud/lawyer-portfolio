@@ -261,22 +261,22 @@ ${formData.description}
           <h2>{t('nav.contact')}</h2>
           <div className="contact-grid">
             <div className="contact-info">
-              <h3>طرق التواصل</h3>
+              <h3>{t('contact.methods')}</h3>
               <div className="contact-methods">
                 <div className="contact-method">
-                  <h4>البريد الإلكتروني</h4>
+                  <h4>{t('contact.email')}</h4>
                   <a href="mailto:muhammd.alshaikh@gmail.com">muhammd.alshaikh@gmail.com</a>
                 </div>
                 <div className="contact-method">
-                  <h4>الجوال</h4>
+                  <h4>{t('contact.phone')}</h4>
                   <a href="tel:+966576608505">0576608505</a>
                 </div>
                 <div className="contact-method">
-                  <h4>الواتس آب</h4>
-                  <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص استشارة قانونية" target="_blank" rel="noopener noreferrer">تواصل عبر الواتس آب</a>
+                  <h4>{t('contact.whatsapp')}</h4>
+                  <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص استشارة قانونية" target="_blank" rel="noopener noreferrer">{t('contact.whatsapp')}</a>
                 </div>
                 <div className="contact-method">
-                  <h4>اكس (X)</h4>
+                  <h4>{t('contact.x')}</h4>
                   <a href="https://x.com/MOHAMMEDstwi" target="_blank" rel="noopener noreferrer">@MOHAMMEDstwi</a>
                 </div>
               </div>
