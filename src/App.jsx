@@ -62,41 +62,36 @@ function App() {
     e.preventDefault()
     
     // Build WhatsApp message
-    const yesLabel = language === 'ar' ? 'نعم' : language === 'ur' ? 'جی' : 'Yes'
-    const noLabel = language === 'ar' ? 'لا' : language === 'ur' ? 'نہیں' : 'No'
-    const notEndedLabel = language === 'ar' ? 'لم ينته' : language === 'ur' ? 'ختم نہیں ہوا' : 'Not ended'
-    const notLeftLabel = language === 'ar' ? 'لم يترك' : language === 'ur' ? 'نہیں چھوڑا' : 'Not left'
-    
     const message = `
-*${t('form.title')}*
+*طلب تولي قضيتي العمالية*
 
-*${language === 'ar' ? 'البيانات الشخصية:' : language === 'ur' ? 'ذاتی ڈیٹا:' : 'Personal Information:'}*
-${language === 'ar' ? 'الاسم' : language === 'ur' ? 'نام' : 'Name'}: ${formData.name}
-${language === 'ar' ? 'البريد الإلكتروني' : language === 'ur' ? 'ای میل' : 'Email'}: ${formData.email}
-${language === 'ar' ? 'رقم الجوال' : language === 'ur' ? 'موبائل' : 'Phone'}: ${formData.phone}
-${language === 'ar' ? 'رقم الهوية' : language === 'ur' ? 'شناخت نمبر' : 'Identity'}: ${formData.identity}
+*البيانات الشخصية:*
+الاسم: ${formData.name}
+البريد الإلكتروني: ${formData.email}
+رقم الجوال: ${formData.phone}
+رقم الهوية: ${formData.identity}
 
-*${language === 'ar' ? 'بيانات العمل:' : language === 'ur' ? 'کام کی معلومات:' : 'Work Information:'}*
-${language === 'ar' ? 'جهة العمل' : language === 'ur' ? 'ملازم' : 'Employer'}: ${formData.workplace}
-${language === 'ar' ? 'المسمى الوظيفي' : language === 'ur' ? 'ملازمت کا عنوان' : 'Job Title'}: ${formData.jobTitle}
-${language === 'ar' ? 'الراتب الشهري' : language === 'ur' ? 'ماہانہ تنخواہ' : 'Monthly Salary'}: ${formData.salary}
-${language === 'ar' ? 'تاريخ بدء العمل' : language === 'ur' ? 'ملازمت کی شروعات' : 'Start Date'}: ${formData.startDate}
-${language === 'ar' ? 'تاريخ انتهاء العمل' : language === 'ur' ? 'ملازمت کی اختتام' : 'End Date'}: ${formData.endDate || notEndedLabel}
-${language === 'ar' ? 'مدينة العمل' : language === 'ur' ? 'کام کا شہر' : 'Work City'}: ${formData.workCity}
-${language === 'ar' ? 'سبب ترك العمل' : language === 'ur' ? 'کام چھوڑنے کی وجہ' : 'Reason for Leaving'}: ${formData.reasonForLeaving || notLeftLabel}
+*بيانات العمل:*
+جهة العمل: ${formData.workplace}
+المسمى الوظيفي: ${formData.jobTitle}
+الراتب الشهري: ${formData.salary}
+تاريخ بدء العمل: ${formData.startDate}
+تاريخ انتهاء العمل: ${formData.endDate || 'لم ينته'}
+مدينة العمل: ${formData.workCity}
+سبب ترك العمل: ${formData.reasonForLeaving || 'لم يترك'}
 
-*${language === 'ar' ? 'معلومات العقد:' : language === 'ur' ? 'معاہدے کی معلومات:' : 'Contract Information:'}*
-${language === 'ar' ? 'هل يوجد عقد عمل مكتوب؟' : language === 'ur' ? 'کیا لکھا ہوا معاہدہ ہے؟' : 'Written Contract?'}: ${formData.hasWrittenContract === 'yes' ? yesLabel : formData.hasWrittenContract === 'no' ? noLabel : formData.hasWrittenContract}
-${language === 'ar' ? 'هل العقد إلكتروني؟' : language === 'ur' ? 'کیا معاہدہ سرکاری ہے؟' : 'Official Contract?'}: ${formData.isContractOfficial === 'yes' ? yesLabel : formData.isContractOfficial === 'no' ? noLabel : formData.isContractOfficial}
+*معلومات العقد:*
+هل يوجد عقد عمل مكتوب؟: ${formData.hasWrittenContract}
+هل العقد إلكتروني؟: ${formData.isContractOfficial}
 
-*${language === 'ar' ? 'الأجور والإجازات:' : language === 'ur' ? 'تنخواہیں اور چھٹیاں:' : 'Salaries and Vacations:'}*
-${language === 'ar' ? 'الأجور المتأخرة' : language === 'ur' ? 'تاخیر سے تنخواہ' : 'Delayed Salary'}: ${formData.delayedSalary === 'yes' ? yesLabel : formData.delayedSalary === 'no' ? noLabel : formData.delayedSalary}
-${formData.delayedSalaryDetails ? (language === 'ar' ? 'تفاصيل الأجور المتأخرة' : language === 'ur' ? 'تاخیر سے تنخواہ کی تفصیلات' : 'Delayed Salary Details') + ': ' + formData.delayedSalaryDetails : ''}
-${language === 'ar' ? 'رصيد الإجازات السنوية' : language === 'ur' ? 'سالانہ چھٹی کا توازن' : 'Vacation Balance'}: ${formData.vacationBalance === 'yes' ? yesLabel : formData.vacationBalance === 'no' ? noLabel : formData.vacationBalance}
-${formData.vacationDays ? (language === 'ar' ? 'عدد أيام الإجازة المستحقة' : language === 'ur' ? 'حقدار چھٹی کے دن' : 'Entitled Vacation Days') + ': ' + formData.vacationDays : ''}
-${formData.vacationDaysUsed ? (language === 'ar' ? 'عدد أيام الإجازة التي خرجتها' : language === 'ur' ? 'استعمال شدہ چھٹی کے دن' : 'Vacation Days Used') + ': ' + formData.vacationDaysUsed : ''}
+*الأجور والإجازات:*
+الأجور المتأخرة: ${formData.delayedSalary}
+${formData.delayedSalaryDetails ? 'تفاصيل الأجور المتأخرة: ' + formData.delayedSalaryDetails : ''}
+رصيد الإجازات السنوية: ${formData.vacationBalance}
+${formData.vacationDays ? 'عدد أيام الإجازة المستحقة: ' + formData.vacationDays : ''}
+${formData.vacationDaysUsed ? 'عدد أيام الإجازة التي خرجتها: ' + formData.vacationDaysUsed : ''}
 
-*${language === 'ar' ? 'وصف القضية:' : language === 'ur' ? 'معاملے کی تفصیل:' : 'Case Description:'}*
+*وصف القضية:*
 ${formData.description}
     `.trim()
 
@@ -131,7 +126,7 @@ ${formData.description}
     })
     
     setShowCaseForm(false)
-    alert(t('form.successMessage'))
+    alert('تم إرسال طلبك بنجاح! سيتم التواصل معك قريباً.')
   }
 
   return (
@@ -311,119 +306,119 @@ ${formData.description}
         <div className="case-form-modal" onClick={() => setShowCaseForm(false)}>
           <div className="case-form-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setShowCaseForm(false)}>✕</button>
-            <h2>{t('form.title')}</h2>
+            <h2>طلب تولي قضيتي العمالية</h2>
             <form onSubmit={handleSubmit} className="case-form">
               <div className="form-group">
-                <label>{t('form.fullName')} *</label>
+                <label>الاسم الكامل *</label>
                 <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.email')} *</label>
+                <label>البريد الإلكتروني *</label>
                 <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.phone')} *</label>
+                <label>رقم الجوال *</label>
                 <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.identity')} *</label>
+                <label>رقم الهوية *</label>
                 <input type="text" name="identity" value={formData.identity} onChange={handleInputChange} required />
               </div>
               
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>{t('form.workData')}</h3>
+              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>بيانات العمل</h3>
               
               <div className="form-group">
-                <label>{t('form.workplace')} *</label>
+                <label>جهة العمل *</label>
                 <input type="text" name="workplace" value={formData.workplace} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.jobTitle')} *</label>
+                <label>المسمى الوظيفي *</label>
                 <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.salary')} *</label>
+                <label>الراتب الشهري *</label>
                 <input type="text" name="salary" value={formData.salary} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.startDate')} *</label>
+                <label>تاريخ بدء العمل *</label>
                 <input type="date" name="startDate" value={formData.startDate} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.endDate')}</label>
+                <label>تاريخ انتهاء العمل</label>
                 <input type="date" name="endDate" value={formData.endDate} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label>{t('form.workCity')} *</label>
+                <label>مدينة العمل *</label>
                 <input type="text" name="workCity" value={formData.workCity} onChange={handleInputChange} required />
               </div>
               <div className="form-group">
-                <label>{t('form.reasonForLeaving')}</label>
+                <label>سبب ترك العمل</label>
                 <input type="text" name="reasonForLeaving" value={formData.reasonForLeaving} onChange={handleInputChange} />
               </div>
               
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>{t('form.contractInfo')}</h3>
+              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>معلومات العقد</h3>
               
               <div className="form-group">
-                <label>{t('form.hasWrittenContract')} *</label>
+                <label>هل يوجد عقد عمل مكتوب؟ *</label>
                 <select name="hasWrittenContract" value={formData.hasWrittenContract} onChange={handleInputChange} required>
-                  <option value="">{t('form.selectOption')}</option>
-                  <option value="yes">{t('form.yes')}</option>
-                  <option value="no">{t('form.no')}</option>
+                  <option value="">اختر...</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
                 </select>
               </div>
               <div className="form-group">
-                <label>{t('form.isContractOfficial')} *</label>
+                <label>هل العقد إلكتروني؟ *</label>
                 <select name="isContractOfficial" value={formData.isContractOfficial} onChange={handleInputChange} required>
-                  <option value="">{t('form.selectOption')}</option>
-                  <option value="yes">{t('form.yes')}</option>
-                  <option value="no">{t('form.no')}</option>
+                  <option value="">اختر...</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
                 </select>
               </div>
               
-              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>{t('form.salariesAndVacations')}</h3>
+              <h3 style={{marginTop: '20px', marginBottom: '10px'}}>الأجور والإجازات</h3>
               
               <div className="form-group">
-                <label>{t('form.delayedSalary')} *</label>
+                <label>الأجور المتأخرة *</label>
                 <select name="delayedSalary" value={formData.delayedSalary} onChange={handleInputChange} required>
-                  <option value="">{t('form.selectOption')}</option>
-                  <option value="yes">{t('form.yes')}</option>
-                  <option value="no">{t('form.no')}</option>
+                  <option value="">اختر...</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
                 </select>
               </div>
-              {formData.delayedSalary === 'yes' && (
+              {formData.delayedSalary === 'نعم' && (
                 <div className="form-group">
-                  <label>{t('form.delayedSalaryDetails')}</label>
-                  <input type="text" name="delayedSalaryDetails" value={formData.delayedSalaryDetails} onChange={handleInputChange} placeholder={t('form.delayedSalaryPlaceholder')} />
+                  <label>تفاصيل الأجور المتأخرة</label>
+                  <input type="text" name="delayedSalaryDetails" value={formData.delayedSalaryDetails} onChange={handleInputChange} placeholder="مثال: 3 أشهر" />
                 </div>
               )}
               
               <div className="form-group">
-                <label>{t('form.vacationBalance')} *</label>
+                <label>رصيد الإجازات السنوية *</label>
                 <select name="vacationBalance" value={formData.vacationBalance} onChange={handleInputChange} required>
-                  <option value="">{t('form.selectOption')}</option>
-                  <option value="yes">{t('form.yes')}</option>
-                  <option value="no">{t('form.no')}</option>
+                  <option value="">اختر...</option>
+                  <option value="نعم">نعم</option>
+                  <option value="لا">لا</option>
                 </select>
               </div>
-              {formData.vacationBalance === 'yes' && (
+              {formData.vacationBalance === 'نعم' && (
                 <>
                   <div className="form-group">
-                    <label>{t('form.vacationDays')}</label>
+                    <label>عدد أيام الإجازة المستحقة</label>
                     <input type="number" name="vacationDays" value={formData.vacationDays} onChange={handleInputChange} />
                   </div>
                   <div className="form-group">
-                    <label>{t('form.vacationDaysUsed')}</label>
+                    <label>عدد أيام الإجازة التي خرجتها</label>
                     <input type="number" name="vacationDaysUsed" value={formData.vacationDaysUsed} onChange={handleInputChange} />
                   </div>
                 </>
               )}
               
               <div className="form-group">
-                <label>{t('form.caseDescription')} *</label>
+                <label>وصف القضية *</label>
                 <textarea name="description" value={formData.description} onChange={handleInputChange} required rows="5"></textarea>
               </div>
               
-              <button type="submit" className="submit-btn">{t('form.submitButton')}</button>
+              <button type="submit" className="submit-btn">إرسال الطلب عبر الواتس آب</button>
             </form>
           </div>
         </div>
