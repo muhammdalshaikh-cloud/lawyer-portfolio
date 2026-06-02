@@ -136,6 +136,7 @@ ${formData.description}
 
       {/* Hero Section */}
       <section id="hero" className="hero">
+        <div className="gold-line" style={{marginBottom: '20px'}}></div>
         <div className="hero-content">
           <h1 style={{color: 'white'}}>{t('hero.title')}</h1>
           <p style={{color: '#d4af37'}}>{t('hero.subtitle')}</p>
@@ -196,7 +197,23 @@ ${formData.description}
       </section>
 
 
-      {/* FAQ Section */}
+      {/* Services Section */}
+      <section id="services" className="services">
+        <div className="container">
+          <h2>{t('nav.services')}</h2>
+          <div className="services-grid">
+            <div className="service-card" onClick={() => setShowCaseForm(true)}>
+              <h3>{t('services.service1_title')}</h3>
+              <p>{t('services.service1_desc')}</p>
+            </div>
+            <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص خدمة قانونية أخرى" target="_blank" rel="noopener noreferrer" className="service-card service-card-link">
+              <h3>{t('services.service2_title')}</h3>
+              <p>{t('services.service2_desc')}</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="faq">
         <div className="container">
           <h2>{t('faq.title')}</h2>
@@ -472,6 +489,13 @@ ${formData.description}
           </div>
         </div>
       )}
+
+      {/* WhatsApp Floating Button */}
+      <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص استشارة قانونية" target="_blank" rel="noopener noreferrer" className="whatsapp-float">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.946 1.347l-.355.202-.368-.067c-1.264-.233-2.477-.571-3.644-1.111l-.42-.201-.422.224c-.663.35-1.296.805-1.857 1.383-.192.192-.385.384-.57.576-.528.553-.968 1.554-.968 2.529 0 .982.44 2.02.968 2.846.528.826 1.295 1.663 2.228 2.293.934.631 2.01 1.1 3.181 1.366 1.17.266 2.42.338 3.59.271 1.17-.066 2.213-.303 3.256-.754 1.042-.45 2.06-1.057 2.927-1.88.867-.822 1.56-1.86 1.998-2.966.438-1.107.64-2.279.64-3.548 0-1.268-.202-2.44-.64-3.547-.438-1.108-1.13-2.146-1.998-2.968-.867-.823-1.885-1.43-2.927-1.88-1.042-.451-2.085-.688-3.256-.754-.572-.034-1.142-.034-1.714 0z"/>
+        </svg>
+      </a>
 
       {/* Footer */}
       <footer className="footer">
