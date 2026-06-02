@@ -145,12 +145,21 @@ body {
 @media (max-width: 768px) {
   .navbar .container {
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   .nav-links {
-    gap: 15px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    padding: 4px 8px;
   }
 }
 
