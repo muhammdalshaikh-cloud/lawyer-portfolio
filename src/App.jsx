@@ -132,16 +132,7 @@ ${formData.description}
   return (
     <div className="app" lang={i18n.language} dir={i18n.language === 'en' ? 'ltr' : 'rtl'}>
       <LanguageSwitcher />
-      {/* Navigation */}
-      <nav className={`navbar ${!isAtHero ? 'scrolled' : ''}`}>
-        <div className="container">
-          <div className="nav-content">
-            <a href="#hero" className="nav-link">{t('nav.home')}</a>
-            <a href="#about" className="nav-link">{t('nav.about')}</a>
-            <a href="#contact" className="nav-link">{t('nav.contact')}</a>
-          </div>
-        </div>
-      </nav>
+
 
       {/* Hero Section */}
       <section id="hero" className="hero">
@@ -203,22 +194,6 @@ ${formData.description}
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="services">
-        <div className="container">
-          <h2>{t('nav.services')}</h2>
-          <div className="services-grid">
-            <div className="service-card" onClick={() => setShowCaseForm(true)}>
-              <h3>{t('services.service1_title')}</h3>
-              <p>{t('services.service1_desc')}</p>
-            </div>
-            <a href="https://wa.me/966576608505?text=أرغب في التواصل معك بخصوص خدمة قانونية أخرى" target="_blank" rel="noopener noreferrer" className="service-card service-card-link">
-              <h3>{t('services.service2_title')}</h3>
-              <p>{t('services.service2_desc')}</p>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="faq">
