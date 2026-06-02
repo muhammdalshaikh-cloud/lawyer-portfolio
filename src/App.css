@@ -144,22 +144,30 @@ body {
 
 @media (max-width: 768px) {
   .navbar .container {
-    flex-direction: column;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .nav-links {
-    gap: 8px;
-    font-size: 12px;
+    gap: 4px;
+    font-size: 13px;
     display: flex;
     flex-direction: row-reverse;
   }
 
   .nav-link {
-    font-size: 12px;
-    padding: 4px 8px;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 2px 6px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
   }
 }
 
