@@ -132,7 +132,7 @@ ${formData.description}
   return (
     <div className="app" lang={i18n.language} dir={i18n.language === 'en' ? 'ltr' : 'rtl'}>
       <LanguageSwitcher />
-
+      <div className="gold-line"></div>
 
       {/* Hero Section */}
       <section id="hero" className="hero">

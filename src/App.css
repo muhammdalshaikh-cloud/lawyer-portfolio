@@ -45,6 +45,12 @@ body {
   width: 100%;
 }
 
+.gold-line {
+  height: 4px;
+  background-color: var(--accent-color);
+  width: 100%;
+}
+
 /* Navigation */
 .navbar {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
