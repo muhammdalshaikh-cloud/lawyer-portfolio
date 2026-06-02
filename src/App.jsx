@@ -138,7 +138,6 @@ ${formData.description}
           <div className="nav-content">
             <a href="#hero" className="nav-link">{t('nav.home')}</a>
             <a href="#about" className="nav-link">{t('nav.about')}</a>
-            <a href="#services" className="nav-link">{t('nav.services')}</a>
             <a href="#contact" className="nav-link">{t('nav.contact')}</a>
           </div>
         </div>
