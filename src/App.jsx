@@ -141,6 +141,7 @@ ${formData.description}
           <p style={{color: '#d4af37'}}>{t('hero.subtitle')}</p>
         </div>
       </section>
+      <div className="gold-line"></div>
 
       {/* About Section */}
       <section id="about" className="about">
