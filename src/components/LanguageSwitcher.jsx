@@ -1,12 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../styles/LanguageSwitcher.css'
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation()
   const navigate = useNavigate()
-  const location = useLocation()
-
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang)
     
