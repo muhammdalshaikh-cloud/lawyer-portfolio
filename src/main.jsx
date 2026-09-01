@@ -4,22 +4,19 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './index.css'
 import './i18n'
 import App from './App.jsx'
-
-function RootLayout() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/ar" element={<App />} />
-        <Route path="/en" element={<App />} />
-        <Route path="/ur" element={<App />} />
-        <Route path="/" element={<Navigate to="/ar" replace />} />
-      </Routes>
-    </Router>
-  )
-}
+import Privacy from './Privacy.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RootLayout />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/ar" element={<Navigate to="/" replace />} />
+        <Route path="/en" element={<Navigate to="/" replace />} />
+        <Route path="/ur" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   </StrictMode>,
 )
