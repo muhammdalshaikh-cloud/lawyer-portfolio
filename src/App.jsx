@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import LanguageSwitcher from './components/LanguageSwitcher'
+import { Link } from 'react-router-dom'
 import './App.css'
 
 const contact = {
@@ -24,20 +24,22 @@ function MarkIcon({ name }) {
 }
 
 function App() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', phone: '', service: 'estate', summary: '' })
-  const isEnglish = i18n.language === 'en'
-  const direction = isEnglish ? 'ltr' : 'rtl'
   const services = t('services.items', { returnObjects: true })
   const credentials = t('credentials.items', { returnObjects: true })
   const process = t('process.items', { returnObjects: true })
 
   useEffect(() => {
-    document.documentElement.lang = i18n.language
-    document.documentElement.dir = direction
+    document.documentElement.lang = 'ar'
+    document.documentElement.dir = 'rtl'
     document.title = t('meta.title')
-  }, [direction, i18n.language, t])
+    document.querySelector('meta[name="description"]')?.setAttribute('content', 'محمد آل الشيخ، محامٍ وموثق متخصص في قضايا التركات وقسمتها، الأوقاف وتنظيمها وحوكمتها، والوصايا في المملكة العربية السعودية.')
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', 'https://shaikhlawyer.com')
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t('meta.title'))
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', 'https://shaikhlawyer.com')
+  }, [t])
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -59,7 +61,7 @@ function App() {
   }
 
   return (
-    <div className="app" dir={direction}>
+    <div className="app" dir="rtl">
       <header className="site-header">
         <button className="brand" onClick={() => scrollTo('hero')} aria-label={t('nav.home')}>
           <img src="/logo.svg" alt={t('brand.logoAlt')} />
@@ -77,7 +79,6 @@ function App() {
         </nav>
 
         <div className="header-tools">
-          <LanguageSwitcher />
           <button className="menu-toggle" onClick={() => setMenuOpen((value) => !value)} aria-label={t('nav.menu')} aria-expanded={menuOpen}>
             <span />
             <span />
@@ -130,7 +131,6 @@ function App() {
 
         <section className="about section" id="about">
           <div className="section-heading">
-            <span className="section-number">01</span>
             <div>
               <p>{t('about.kicker')}</p>
               <h2>{t('about.title')}</h2>
@@ -155,7 +155,6 @@ function App() {
 
         <section className="services section" id="services">
           <div className="section-heading light">
-            <span className="section-number">02</span>
             <div>
               <p>{t('services.kicker')}</p>
               <h2>{t('services.title')}</h2>
@@ -166,7 +165,6 @@ function App() {
             {Array.isArray(services) && services.map((service, index) => (
               <article className={`service-card service-${index + 1}`} key={service.title}>
                 <div className="service-topline">
-                  <span>0{index + 1}</span>
                   <MarkIcon name={['estate', 'waqf', 'will'][index]} />
                 </div>
                 <h3>{service.title}</h3>
@@ -182,7 +180,6 @@ function App() {
         <section className="process section" id="process">
           <div className="process-intro">
             <div className="section-heading compact">
-              <span className="section-number">03</span>
               <div>
                 <p>{t('process.kicker')}</p>
                 <h2>{t('process.title')}</h2>
@@ -191,9 +188,8 @@ function App() {
             <p>{t('process.description')}</p>
           </div>
           <div className="process-list">
-            {Array.isArray(process) && process.map((item, index) => (
+            {Array.isArray(process) && process.map((item) => (
               <div className="process-item" key={item.title}>
-                <span>0{index + 1}</span>
                 <div><h3>{item.title}</h3><p>{item.description}</p></div>
               </div>
             ))}
@@ -203,19 +199,20 @@ function App() {
         <section className="credentials section" id="credentials">
           <div className="credentials-copy">
             <div className="section-heading compact light">
-              <span className="section-number">04</span>
               <div>
                 <p>{t('credentials.kicker')}</p>
                 <h2>{t('credentials.title')}</h2>
               </div>
             </div>
             <p>{t('credentials.description')}</p>
-            <div className="license-seal"><MarkIcon name="scale" /><span>{t('credentials.license')}</span></div>
+            <div className="license-seals">
+              <div className="license-seal"><MarkIcon name="scale" /><span>{t('credentials.license')}</span></div>
+              <div className="license-seal"><MarkIcon name="will" /><span>{t('credentials.notaryLicense')}</span></div>
+            </div>
           </div>
           <div className="credentials-list">
-            {Array.isArray(credentials) && credentials.map((item, index) => (
+            {Array.isArray(credentials) && credentials.map((item) => (
               <article key={item.title}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <div><h3>{item.title}</h3><p>{item.description}</p></div>
               </article>
             ))}
@@ -248,6 +245,7 @@ function App() {
                 <option value="estate">{t('contact.serviceOptions.estate')}</option>
                 <option value="waqf">{t('contact.serviceOptions.waqf')}</option>
                 <option value="will">{t('contact.serviceOptions.will')}</option>
+                <option value="other">{t('contact.serviceOptions.other')}</option>
               </select>
             </label>
             <label className="full-field">
@@ -267,7 +265,10 @@ function App() {
           <img src="/logo.svg" alt={t('brand.logoAlt')} />
           <span><strong>{t('brand.name')}</strong><small>{t('brand.role')}</small></span>
         </div>
-        <p>{t('footer.description')}</p>
+        <div className="footer-copy">
+          <p>{t('footer.description')}</p>
+          <Link to="/privacy">{t('footer.privacy')}</Link>
+        </div>
         <span>© 2026 {t('brand.name')}. {t('footer.rights')}</span>
       </footer>
     </div>

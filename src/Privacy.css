@@ -1,0 +1,69 @@
+.privacy-page {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 5%, rgba(182, 154, 82, 0.16), transparent 24rem),
+    var(--paper);
+}
+
+.privacy-header {
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 20px clamp(24px, 7vw, 110px);
+  color: var(--paper);
+  background: var(--forest-deep);
+  border-bottom: 1px solid rgba(244, 240, 230, 0.15);
+}
+
+.privacy-brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+}
+
+.privacy-brand img { width: 58px; height: 58px; }
+.privacy-brand span { display: flex; flex-direction: column; }
+.privacy-brand strong { font-family: 'Aref Ruqaa', serif; font-size: 1.2rem; font-weight: 400; }
+.privacy-brand small { color: rgba(244, 240, 230, 0.55); font-size: 0.57rem; }
+.privacy-back { color: var(--brass-light); font-size: 0.72rem; text-underline-offset: 6px; }
+
+.privacy-content {
+  width: min(1120px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: clamp(70px, 10vw, 140px) 0;
+}
+
+.privacy-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px;
+  padding-bottom: 46px;
+  border-bottom: 1px solid var(--line);
+}
+
+.privacy-intro p { grid-column: 1 / -1; margin: 0; color: var(--brass); font-size: 0.7rem; letter-spacing: 0.12em; }
+.privacy-intro h1 { margin: 0; color: var(--forest); font-family: 'Aref Ruqaa', serif; font-size: clamp(3.2rem, 8vw, 7.2rem); font-weight: 400; line-height: 1; }
+.privacy-intro span { color: var(--muted); font-size: 0.66rem; }
+
+.privacy-body {
+  max-width: 780px;
+  margin-inline-start: auto;
+  padding-top: 40px;
+}
+
+.privacy-body section { padding: 30px 0; border-bottom: 1px solid var(--line); }
+.privacy-body h2 { margin: 0 0 12px; color: var(--forest); font-family: 'Aref Ruqaa', serif; font-size: 1.7rem; font-weight: 400; }
+.privacy-body p { margin: 0; color: var(--muted); font-size: 0.82rem; line-height: 2.1; }
+
+@media (max-width: 640px) {
+  .privacy-header { min-height: 92px; }
+  .privacy-brand img { width: 48px; height: 48px; }
+  .privacy-back { font-size: 0.62rem; }
+  .privacy-intro { grid-template-columns: 1fr; align-items: start; }
+  .privacy-intro p { grid-column: auto; }
+}
